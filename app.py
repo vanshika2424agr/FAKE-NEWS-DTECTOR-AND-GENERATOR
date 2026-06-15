@@ -6,23 +6,17 @@ vectorizer = pickle.load(open("vectorizer.pkl", "rb"))
 
 def detect_fake_news(news_text):
     news_vec = vectorizer.transform([news_text])
-
     prediction = model.predict(news_vec)[0]
-    confidence = max(model.predict_proba(news_vec)[0]) * 100
-
-    if confidence < 70:
-        return f"UNCERTAIN ({confidence:.2f}% confidence)"
 
     if prediction == 0:
-        return f"FAKE NEWS ({confidence:.2f}% confidence)"
-
-    return f"REAL NEWS ({confidence:.2f}% confidence)"
+        return "FAKE NEWS"
+    return "REAL NEWS"
 
 demo = gr.Interface(
     fn=detect_fake_news,
-    inputs=gr.Textbox(lines=8, label="Enter News"),
+    inputs=gr.Textbox(lines=8),
     outputs="text",
     title="Fake News Detector"
 )
 
-demo.launch(server_name="0.0.0.0", server_port=7860)
+demo.launch(server_name="0.0.0.0", server_port=10000)
