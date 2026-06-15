@@ -2,3 +2,5 @@ gradio
 scikit-learn
 pandas
 numpy
+transformers
+torch
