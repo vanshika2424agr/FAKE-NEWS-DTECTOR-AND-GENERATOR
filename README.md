@@ -1,7 +1,7 @@
-# Fake News Detector and Generator
+# Fake News Detector 
 
 ## Overview
-This project uses NLP and Machine Learning to detect fake news articles and generate fictional news content for research purposes.
+This project uses NLP and Machine Learning to detect fake news articles.
 
 ## Technologies Used
 - Python
